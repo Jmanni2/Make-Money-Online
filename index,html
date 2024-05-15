@@ -4,12 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make Money Website</title>
-    <!-- Add the link to your CSS file here -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Make Money Website</h1>
-    <!-- Add your website content here -->
+    <header>
+        <div class="container">
+            <h1>Make Money Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <article>
+                <h2>Welcome to Make Money Website</h2>
+                <p>This is the main content area of the website. You can add articles, blog posts, or other content here.</p>
+            </article>
+        </main>
+
+        <aside>
+            <h3>Sidebar</h3>
+            <p>This is the sidebar area. You can add additional content, links, or advertisements here.</p>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Make Money Website. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
 
