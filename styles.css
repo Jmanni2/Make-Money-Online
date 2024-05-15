@@ -70,3 +70,20 @@ footer {
     padding: 10px 0;
     text-align: center;
 }
+
+/* Additional styles */
+article {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+aside h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
