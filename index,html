@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head<link rel="stylesheet" href="styles.css">
->
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make Money Website</title>
+    <!-- Add the link to your CSS file here -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Welcome to Make Money Website</h1>
     <!-- Add your website content here -->
 </body>
 </html>
+
