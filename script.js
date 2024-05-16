@@ -53,3 +53,17 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("Withdrawal functionality is not implemented in this demo.");
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const depositBtn = document.getElementById("depositBtn");
+    const withdrawBtn = document.getElementById("withdrawBtn");
+
+    depositBtn.addEventListener("click", function() {
+        alert("Deposit functionality is not implemented in this demo.");
+    });
+
+    withdrawBtn.addEventListener("click", function() {
+        alert("Withdrawal functionality is currently unavailable. Please try again later.");
+    });
+});
+
