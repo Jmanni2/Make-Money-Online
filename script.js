@@ -1,88 +1,112 @@
 // Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
   // Your Firebase configuration here
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Function to register a new user
-function register() {
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // User registered successfully
-      alert("Registration successful!");
-      // Deposit $8 to the user's account
-      depositInitialAmount(userCredential.user.uid, 8);
-      // Redirect to the user's dashboard after registration
-      window.location.href = "dashboard.html";
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorMessage);
-    });
-}
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-// Function to deposit initial amount to the user's account
-function depositInitialAmount(userId, amount) {
-  // Here you would implement logic to deposit the initial amount to the user's account
-  console.log("Depositing initial amount to user with ID: " + userId);
-  // For demonstration purposes, let's just log the initial deposit amount
-  console.log("Initial deposit amount: $" + amount);
-}
+const mainContainer = document.getElementById('main-container');
+const logoutBtn = document.getElementById('logoutBtn');
 
-// Function to deposit money
-function deposit() {
-  var amount = prompt("Enter the amount to deposit:");
-  if (amount !== null && amount !== "") {
-    amount = parseFloat(amount);
-    if (!isNaN(amount) && amount > 0) {
-      // Here you would implement logic to deposit the money
-      // For now, let's just log the amount to the console
-      console.log("Deposited: $" + amount);
-      // Update the total earnings display (just for visual feedback)
-      document.getElementById("totalEarnings").textContent = "$" + (parseFloat(document.getElementById("totalEarnings").textContent.slice(1)) + amount).toFixed(2);
-    } else {
-      alert("Please enter a valid amount.");
-    }
-  }
-}
-
-// Function to withdraw earnings
-function withdrawEarnings() {
-  var isAdmin = true; // You can replace this with your own condition to determine if the user is the administrator
-  if (isAdmin) {
-    // Perform withdrawal logic
-    alert("Withdrawal successful!");
-    // Here you would implement logic to actually withdraw the earnings
+// Check if user is logged in
+auth.onAuthStateChanged(user => {
+  if (user) {
+    // User is signed in
+    renderUserProfile(user);
   } else {
-    alert("You are not authorized to perform this action.");
+    // No user is signed in
+    renderAuthOptions();
   }
-}
+});
 
-// Function to invite friends
-function inviteFriends() {
-  // Implement invite friends functionality here
-}
+// Render authentication options (login/register)
+function renderAuthOptions() {
+  mainContainer.innerHTML = `
+    <section id="auth-container">
+      <form id="login-form">
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <form id="register-form">
+        <h2>Register</h2>
+        <input type="email" id="register-email" placeholder="Email" required>
+        <input type="password" id="register-password" placeholder="Password" required>
+        <button type="submit">Register</button>
+      </form>
+    </section>
+  `;
 
-// Function to upgrade plan
-function upgradePlan() {
-  // Implement upgrade plan functionality here
-}
+  const loginForm = document.getElementById('login-form');
+  const registerForm = document.getElementById('register-form');
 
-// Function to log out the user
-function logout() {
-  firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-    alert("Logged out successfully!");
-    // Redirect to the login page after logout
-    window.location.href = "login.html";
-  }).catch(function(error) {
-    // An error happened.
-    alert("Error logging out: " + error.message);
+  // Login form submit
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = loginForm['login-email'].value;
+    const password = loginForm['login-password'].value;
+    auth.signInWithEmailAndPassword(email, password)
+      .then(() => {
+        loginForm.reset();
+      })
+      .catch(error => {
+        alert(error.message);
+      });
+  });
+
+  // Register form submit
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = registerForm['register-email'].value;
+    const password = registerForm['register-password'].value;
+    auth.createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        registerForm.reset();
+      })
+      .catch(error => {
+        alert(error.message);
+      });
   });
 }
 
+// Render user profile
+function renderUserProfile(user) {
+  mainContainer.innerHTML = `
+    <section id="profile-container">
+      <h2>Welcome, ${user.email}</h2>
+      <p>Credited: $10</p>
+      <button id="shopNowBtn">Shop Now</button>
+      <button id="tradeNowBtn">Trade Now</button>
+      <button id="depositBtn">Deposit</button>
+    </section>
+  `;
+
+  const shopNowBtn = document.getElementById('shopNowBtn');
+  const tradeNowBtn = document.getElementById('tradeNowBtn');
+  const depositBtn = document.getElementById('depositBtn');
+
+  // Implement click handlers for each button
+  shopNowBtn.addEventListener('click', () => {
+    // Implement shop now functionality
+  });
+
+  tradeNowBtn.addEventListener('click', () => {
+    // Implement trade now functionality
+  });
+
+  depositBtn.addEventListener('click', () => {
+    // Implement deposit functionality
+  });
+
+  logoutBtn.style.display = 'block';
+}
+
+// Logout button click
+logoutBtn.addEventListener('click', () => {
+  auth.signOut();
+});
