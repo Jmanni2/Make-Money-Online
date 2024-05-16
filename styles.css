@@ -1,54 +1,61 @@
 /* Existing CSS styles remain unchanged */
+/* Body styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #f4f4f4; /* Light gray background */
 }
 
+/* Container styles */
 .container {
   max-width: 800px; /* Increased max-width for better layout */
-  margin: 50px auto;
+  margin: 50px auto; /* Center the container horizontally */
   padding: 20px;
-  background-color: #fff;
+  background-color: #fff; /* White background */
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
+/* Heading styles */
 h2 {
   margin-top: 0;
-  color: #333;
+  color: #333; /* Dark text color */
 }
 
+/* Statistics section styles */
 .stats {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Evenly distribute items */
   margin-bottom: 20px;
 }
 
+/* Stat box styles */
 .stat-box {
-  background-color: #f1f1f1;
+  background-color: #f1f1f1; /* Light gray background */
   padding: 20px;
   border-radius: 10px;
-  flex: 1;
+  flex: 1; /* Flex-grow to evenly distribute space */
   text-align: center;
 }
 
+/* Stat box heading styles */
 .stat-box h3 {
   margin-top: 0;
   margin-bottom: 10px;
 }
 
+/* Actions section styles */
 .actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Evenly distribute items */
 }
 
 /* Additional styles for deposit button */
 .actions button:nth-child(odd) {
   padding: 10px 20px;
   background-color: #28a745; /* Green color for deposit button */
-  color: #fff;
+  color: #fff; /* White text color */
   border: none;
   border-radius: 5px;
   cursor: pointer;
