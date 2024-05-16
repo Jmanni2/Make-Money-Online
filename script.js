@@ -1,5 +1,3 @@
-// script.js
-
 // Firebase configuration
 var firebaseConfig = {
   // Your Firebase configuration
@@ -19,6 +17,8 @@ function register() {
       // Credit $10 to the user's account
       // Note: This is a mock function, replace it with your actual logic
       creditAccount(userCredential.user.uid, 10);
+      // Redirect to the user's dashboard after registration
+      window.location.href = "dashboard.html";
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -37,6 +37,19 @@ function creditAccount(userId, amount) {
 function processPayment(amount) {
   // Here you would implement logic to process payment using PayPal or other payment gateway
   console.log("Processing payment for amount: $" + amount);
+}
+
+// Function to log out the user
+function logout() {
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    alert("Logged out successfully!");
+    // Redirect to the login page after logout
+    window.location.href = "login.html";
+  }).catch(function(error) {
+    // An error happened.
+    alert("Error logging out: " + error.message);
+  });
 }
 
 
