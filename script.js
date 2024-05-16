@@ -1,34 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Your head content here -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make Money Website</title>
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Welcome to Make Money Website</h1>
-    <!-- Your website content here -->
-    <p>This is the main content of your website. You can add more HTML elements and content here.</p>
+// script.js
 
-    <!-- Link to your JavaScript file -->
-    <script src="script.js"></script>
+// Firebase configuration
+var firebaseConfig = {
+  // Your Firebase configuration
+};
 
-    <!-- Additional JavaScript functionality -->
-    <script>
-        // Example JavaScript function to display an alert
-        function greetUser() {
-            alert('Welcome to Make Money Website! Start making money now.');
-        }
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-        // Call the function when the page loads
-        window.onload = function() {
-            greetUser();
-        };
-    </script>
-</body>
-</html>
+// Function to register a new user
+function register() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // User registered successfully
+      alert("Registration successful!");
+      // Credit $10 to the user's account
+      // Note: This is a mock function, replace it with your actual logic
+      creditAccount(userCredential.user.uid, 10);
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert(errorMessage);
+    });
+}
+
+// Function to credit $10 to the user's account (mock function)
+function creditAccount(userId, amount) {
+  // Here you would implement logic to credit the user's account with $10
+  console.log("Crediting $10 to user with ID: " + userId);
+}
+
+// Function to process payment
+function processPayment(amount) {
+  // Here you would implement logic to process payment using PayPal or other payment gateway
+  console.log("Processing payment for amount: $" + amount);
+}
+
 
 
