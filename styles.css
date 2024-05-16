@@ -1,89 +1,49 @@
-/* Reset default browser styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 .container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+h2 {
+  margin-top: 0;
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.form-group {
+  margin-bottom: 20px;
 }
 
-header nav ul {
-    list-style: none;
+label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-header nav ul li {
-    display: inline;
-    margin-right: 20px;
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-header nav ul li:last-child {
-    margin-right: 0;
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
+button:hover {
+  background-color: #0056b3;
 }
-
-main {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-main article {
-    flex: 2;
-    margin-right: 20px;
-}
-
-aside {
-    flex: 1;
-    background-color: #f9f9f9;
-    padding: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-/* Additional styles */
-article {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-aside h2 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-footer p {
-    font-size: 14px;
-}
-
