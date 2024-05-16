@@ -3,37 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Financial Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h2>Welcome to Your Profit Dashboard</h2>
-    <p>Congratulations! You are on your way to financial freedom.</p>
-    <div class="stats">
-      <div class="stat-box">
-        <h3>Total Earnings</h3>
-        <p id="totalEarnings">$5,000</p>
-      </div>
-      <div class="stat-box">
-        <h3>Today's Earnings</h3>
-        <p id="todaysEarnings">$100</p>
-      </div>
-      <div class="stat-box">
-        <h3>Total Referrals</h3>
-        <p id="totalReferrals">50</p>
-      </div>
-    </div>
-    <div class="actions">
-      <button onclick="deposit()">Deposit Money</button>
-      <button onclick="withdrawEarnings()">Withdraw Earnings</button>
-      <button onclick="inviteFriends()">Invite Friends</button>
-      <button onclick="upgradePlan()">Upgrade Plan</button>
-      <button onclick="logout()">Logout</button>
-    </div>
-  </div>
+  <header>
+    <h1>Financial Dashboard</h1>
+    <button id="logoutBtn" style="display:none">Logout</button>
+  </header>
+  <main id="main-container">
+    <!-- Dynamic content will be inserted here -->
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
 
